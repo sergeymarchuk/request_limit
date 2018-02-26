@@ -2,9 +2,9 @@
     function blockRequest($timeLimit) {
         $result = false;
 
-        $ip = $_SERVER['REMOTE_ADDR'];
+        $ip = $_SERVER['REMOTE_ADD'];
         $month = date('M');
-        
+
         $pathToFile = "storage". DIRECTORY_SEPARATOR . $month . DIRECTORY_SEPARATOR ."{$ip}.txt";
         echo $ip;
 
