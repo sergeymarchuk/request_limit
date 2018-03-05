@@ -4,5 +4,8 @@
 	$ip = str_replace(":", "", $ip);
 	$path = "urls".DIRECTORY_SEPARATOR."{$ip}.txt";
 
-	echo "$path";
-	
+	$file = fopen($path, 'w');
+	file_get_contents($file);
+
+
+	fclose($file);
