@@ -1,11 +1,12 @@
 <?php 
-	
-	$ip = $_SERVER['REMOTE_ADDR'];
-	$ip = str_replace(":", "", $ip);
-	$path = "urls".DIRECTORY_SEPARATOR."{$ip}.txt";
 
-	$file = fopen($path, 'w');
-	file_get_contents($file);
+    $ip = $_SERVER['REMOTE_ADDR'];
 
+    $ip = str_replace(":", "", $ip);
+    $path = __DIR__ . DIRECTORY_SEPARATOR . "urls".DIRECTORY_SEPARATOR."{$ip}.txt";
 
-	fclose($file);
+    $time_request = time();
+
+    if (checkRequestLimit($path, $time)) {
+        exit;
+    }
