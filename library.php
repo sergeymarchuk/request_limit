@@ -1,5 +1,6 @@
 <?php
     //function for file block_with_limit
+
     function checkRequestLimit($path, $time) {
         if (!file_exists($path)) {
             writeToFile($path, $time);
@@ -7,17 +8,21 @@
         } else {
             return requestNumber($path, $time);
         }
-
-
     }
 
-    function requestNumber($path, $time) {
-        $requests = unserialize(file_get_contents($path));
-
+    function getData($path) {
+        returns unserialize(file_get_contents($path));
     }
 
     function writeToFile($path, $time) {
+        $data = [];
 
+        if (!file_exists($path)) {
+            $data = getData();
+        }
+
+        array_unshift($data, $time);
+        file_put_contents($path, serialize($data), );
     }
 
     //functions for file block_with_limit_wait
