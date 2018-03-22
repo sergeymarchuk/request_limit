@@ -7,6 +7,7 @@
 
     $time_request = time();
 
-    if (checkRequestLimit($path, $time)) {
+    if (checkRequestLimit($path, $time_request)) {
+        header("HTTP/1.0 403 Forbidden");
         exit;
     }
