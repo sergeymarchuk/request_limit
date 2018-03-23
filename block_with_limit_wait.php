@@ -8,6 +8,7 @@
     $time_request = time();
 
     if (checkRequestLimit($path, $time_request)) {
-        echo "Вы слишком часто отправляете форму, подождите " . $time_request + TIME_LIMIT . " секунд";
+
+        echo ("Вы слишком часто отправляете форму, подождите " . (string)($time_request + TIME_LIMIT) . " секунд <br>");
         exit;
     }

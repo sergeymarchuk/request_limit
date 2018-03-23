@@ -7,12 +7,15 @@
 </head>
 <body class="text-center">
 <?php
-
-    error_reporting(E_ALL);
-    
     require_once "constants.php";
     require_once "library.php";
-    require_once "block_with_limit.php";
+    if (!empty($_POST['checkType'])) {
+        if ($_POST['checkType'] == 'bwl') {
+            require_once "block_with_limit.php";
+        } elseif ($_POST['checkType'] == 'bwwl') {
+            require_once "block_with_limit_wait.php";
+        }
+    }
     require_once "form.php";
 
 ?>  

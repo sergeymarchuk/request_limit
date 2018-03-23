@@ -45,6 +45,14 @@
         } else {
             $data = array($time);
         }
-        var_dump($data);
-        file_put_contents($path, serialize($data), FILE_APPEND | LOCK_EX);
+
+        file_put_contents($path, serialize($data), LOCK_EX);
+    }
+
+    function checkType($value) {
+        if (!empty($_POST['checkType']) && $_POST['checkType'] == $value ) {
+            return "checked";
+        } elseif ($value == 'bwl') {
+            return "checked";
+        }
     }

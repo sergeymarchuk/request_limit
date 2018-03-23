@@ -9,6 +9,5 @@
 
     if (checkRequestLimit($path, $time_request)) {
         header("HTTP/1.0 403 Forbidden");
-        //header("Location: 403Forbidden.php");
         exit;
     }
