@@ -38,11 +38,7 @@
     }
 
     function writeToFile($path, $time) {
-        $data = [];
-
-        if (file_exists($path)) {
-            array_merge($data, getData($path));
-        }
+        $data = getData($path);
 
         array_unshift($data, $time);
         file_put_contents($path, serialize($data), FILE_APPEND | LOCK_EX);

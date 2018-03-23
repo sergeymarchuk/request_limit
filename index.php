@@ -8,12 +8,12 @@
 <body class="text-center">
 <?php
 
-	error_reporting(E_ALL);
+    error_reporting(E_ALL);
     
     require_once "constants.php";
-    require_once "form.php";
     require_once "library.php";
-	require_once "block_with_limit.php";
+    require_once "block_with_limit.php";
+    require_once "form.php";
 
 ?>  
 </body>
