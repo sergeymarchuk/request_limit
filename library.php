@@ -38,8 +38,13 @@
     }
 
     function writeToFile($path, $time) {
-        $data = getData($path);
-
-        array_unshift($data, $time);
+        
+        if (file_exists($path)) {  
+            $data = getData($path);
+            array_unshift($data, $time);
+        } else {
+            $data = array($time);
+        }
+        var_dump($data);
         file_put_contents($path, serialize($data), FILE_APPEND | LOCK_EX);
     }
